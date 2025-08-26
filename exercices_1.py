@@ -158,31 +158,42 @@ mettez à jour :
 • La position 𝑥 = 𝑥 + 𝑣 𝑡 
 Le programme s’arrête après 10 secondes. 
 Retournez une liste des positions à chaque instant.
+
+
+
+jai utilisé une équation différentielle pour obtenir la vitesse en fonction du temps,
+parce que je ne faisais pas confiance en mon raisonnement sinon(tout me semblait comme des approximations,
+au lieu de des calculs.)
+
+en bref, je suis partie de a = dv/dt, et a = g-kv
+ce qui fait 
+
+dv/dt = g-kv
+
+qui m'a donné 
+
+-98,1*e^(t/-10) + 98,1 = V
+
+(résolution explicite avec le point (0, 0)
 """
 
 
-
+import math
 
 def sim():
     liste = list()
-    x = 0
     t = 0
+    x = 0
     v = 0
-    a = 9.81-(0.1*v)
-    liste.append(x)
-    while t < 10:
-      t += 0.1
-      v += a * t
-      x += v*t
-      a = 9.81 - (0.1 * v)
-      liste.append(x)
+    while t < 10 and v < 98.1:
+        v = (-98.1 * (math.pow(math.e, (t/(-10))))) + 98.1
+        x += v * t
+        liste.append(x)
+        t += 0.1
+
     return liste
 
-
-
 print(sim())
-
-
 
 
 
