@@ -11,7 +11,7 @@ def print_hi(name):
 
 input("message?")
 print("yes?")
-import formatif_1
+import exercices_1
 
 
 # Press the green button in the gutter to run the script.
