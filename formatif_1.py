@@ -1,28 +1,32 @@
-#Exercice 1 – Conversion de température
-#Objectif : manipuler types, conditions et fonctions.
-#Écrire une fonction convertir_temperature(valeur, unite) qui :
-#• Accepte une température en degrés Celsius (“C”), Fahrenheit (“F”) ou Kelvin
-#(“K”)
-#• Retourne les deux autres valeurs converties
-#Exemple d’appel :
-#convertir_temperature(100, "C")  # renvoie (373.15, 212.0)
+"""
+Exercice 1 – Conversion de température
+Objectif : manipuler types, conditions et fonctions.
+Écrire une fonction convertir_temperature(valeur, unite) qui :
+• Accepte une température en degrés Celsius (“C”), Fahrenheit (“F”) ou Kelvin
+(“K”)
+• Retourne les deux autres valeurs converties
+Exemple d’appel :
+convertir_temperature(100, "C")  # renvoie (373.15, 212.0)
 from physique import acceleration, pression
+"""
 
 CELSIUS = "C"
 KELVIN = "K"
 FAHRENHEIT = "F"
 
 def convertir_temperature(valeur, unite):
-    if unite == "C":
-        return float(valeur) + 273.15, ((float(valeur) * (9/5)) + 32)
-    elif unite == "K":
-        return float(valeur) - 273.15, (((float(valeur) - 273.15) * (5/9)) + 32)
-    else:
-        celsius = (float(valeur)-32)*(5/9)
-        return celsius, celsius + 273.15
+   match unite:
+       case "C":
+          return float(valeur) + 273.15, ((float(valeur) * (9/5)) + 32)
+       case "K":
+          return float(valeur) - 273.15, (((float(valeur) - 273.15) * (5/9)) + 32)
+       case "F":
+          celsius = (float(valeur)-32)*(5/9)
+          return celsius, celsius + 273.15
 
 
 #print(convertir_temperature(input("temp?"), input("unite?")))
+
 """
 Exercice 2 – Vitesse de chute libre 
 Objectif : utiliser une boucle et une liste. 
@@ -52,7 +56,7 @@ Ajouter une vérification : masse et vitesse doivent être > 0 (Utiliser raise q
 Exception)"""
 
 def energie_cinetique(masse, vitesse):
-    if (vitesse > 0 and masse > 0):
+    if vitesse > 0 and masse > 0:
         return masse * vitesse * vitesse * 0.5
     else :
         raise
@@ -174,7 +178,7 @@ qui m'a donné
 
 -98,1*e^(t/-10) + 98,1 = V
 
-(résolution explicite avec le point (0, 0)
+(solution explicite avec le point (0, 0))
 """
 
 
