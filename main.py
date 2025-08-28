@@ -1,25 +1,31 @@
-# This is a sample Python script.
+nom = 'alice'
+age = 19
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+if age >= 18:
+    print('majeure')
+else:
+    print('mineur')
+#huh
 
+def addition(a,b,c=0):
+    """
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    :param c:
+    :param a:
+    :param b:
+    :return:
+    """
+    return a+b+c
 
+resultat = addition(12,12)
+print(resultat)
 
-input("message?")
-print("yes?")
-import formatif_1
+message = input("entrez une message : ")
+print(message)
 
-
-# Press the green button in the gutter to run the script.
-
-
-#can only call things higher??
-
-#wtf is this "main" interface??-> it's not even needed??????????
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#t uples (???????)
+def operation(a,b):
+    return a+b, a-b, a*b, a/b
+resultat = operation(12,12)
+print(resultat)
+#prints (24, 0, 144, 1.0) (this is a t-uple?

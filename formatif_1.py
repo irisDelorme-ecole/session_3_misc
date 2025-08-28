@@ -25,7 +25,7 @@ def convertir_temperature(valeur, unite):
           return celsius, celsius + 273.15
 
 
-#print(convertir_temperature(input("temp?"), input("unite?")))
+print('ex 1',convertir_temperature(input("temp?"), input("unite?")))
 
 """
 Exercice 2 – Vitesse de chute libre 
@@ -45,7 +45,7 @@ def vitesse_chute_libre(duree, pas):
         compteur += pas
     return resultat
 
-#print(vitesse_chute_libre(5, 1))
+print('ex 2',vitesse_chute_libre(5, 1))
 
 
 """Exercice 3 – Energie cinétique 
@@ -61,8 +61,8 @@ def energie_cinetique(masse, vitesse):
     else :
         raise
 
-#print(energie_cinetique(100, 100))
-#print(energie_cinetique(100, -100))
+print('ex 3 pt1',energie_cinetique(100, 100))
+#print('ex 3 pt2',energie_cinetique(100, -100))
 
 
 """
@@ -88,7 +88,7 @@ def statistiques(liste):
     return (moyenne/len(liste)), min, max
 
 liste = [10, 2, 4, 5, 1, 9, 18]
-#print(statistiques(liste))
+print('ex 4',statistiques(liste))
 
 """
 Exercice 5 – Masse molaire d’un composé 
@@ -99,15 +99,14 @@ masses = {"H": 1.008, "O": 15.999, "C": 12.011}
 d’un composé sous forme de """
 liste = ('H', 'H', 'O')
 
-def masse_totale(formule):
+def masse_totale(liste):
 
-    liste_elements = formule_a_liste(formule)
-    masse_totale = 0
-    for element in liste_elements:
-        masse_totale += masses.get(element)
-    return masse_totale
+    massessum = 0
+    for element in liste:
+        massessum += masses.get(element)
+    return massessum
 
-#print(masse_totale(liste) == (1.008 + 1.008 + 15.999))
+print('ex 5',masse_totale(liste) == (1.008 + 1.008 + 15.999))
 
 
 """
@@ -133,8 +132,8 @@ def formule_a_liste(formule):
     return liste_elements
 
 
-#print(formule_a_liste("H2O"))
-#print(masse_totale("H2O") == (1.008 + 1.008 + 15.999))-->gives true(yay)
+print('ex 6 formule to list',formule_a_liste("H2O"))
+
 
 """
 Exercice 7 – Création d’un module physique 
@@ -145,10 +144,10 @@ o pression(force, surface)
 2. Dans un autre fichier, importer physique et tester les fonctions. 
 """
 
-import physique
+import physique as p
 
-#print(acceleration(9.81, 1))
-#print(pression(50, 10)) cool
+print('ex 7 acc.',p.acceleration(9.81, 1))
+print('ex 7 press.',p.pression(50, 10))
 
 """
 Exercice 8 – Simulation de chute avec frottements 
@@ -197,7 +196,7 @@ def sim():
 
     return liste
 
-print(sim())
+print('ex 8',sim())
 
 
 
