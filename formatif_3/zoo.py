@@ -1,41 +1,41 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
-
-
+@dataclass
 class Animal(ABC):
     #protected pour que les classes enfant y aillent acces
-    _nom:str
-    _age:int
-    _poids:float
+    __nom:str=''
+    __age:int = 0
+    __poids:float = 0
 
     def __init__(self, nom, age=0, poids=0):
-        self._nom = nom
-        self._age = age
-        self._poids = poids
+        self.__nom = nom
+        self.__age = age
+        self.__poids = poids
 
     @property
     def nom(self):
-        return self._nom
+        return self.__nom
 
     @property
     def age(self):
-        return self._age
+        return self.__age
 
     @property
     def poids(self):
-        return self._poids
+        return self.__poids
 
     @nom.setter
     def nom(self, nom):
-        self._nom = nom
+        self.__nom = nom
 
     @age.setter
     def age(self, age):
-        self._age = age
+        self.__age = age
 
     @poids.setter
     def poids(self, poids):
-        self._poids = poids
+        self.__poids = poids
 
     @abstractmethod
     def parler(self):
@@ -46,7 +46,7 @@ class Animal(ABC):
         pass
 
     def __str__(self):
-        return f"{self._nom} à {self._age} ans et pèse {self._poids} grammes."
+        return f"{self.nom} à {self.age} ans et pèse {self.poids} grammes."
 
 
 class Lion(Animal):
@@ -82,9 +82,9 @@ class Lion(Animal):
 
     def __str__(self):
         if self.__dangereux:
-            return f"{self._nom} à {self._age} ans et pèse {self._poids} grammes.\033[91m ATTENTION: DANGEREUX\033[00m"
+            return f"{self.nom} à {self.age} ans et pèse {self.poids} grammes.\033[91m ATTENTION: DANGEREUX\033[00m"
         else:
-            return f"{self._nom} à {self._age} ans et pèse {self._poids} grammes."
+            return f"{self.nom} à {self.age} ans et pèse {self.poids} grammes."
 
 class Pingouin(Animal):
     #private because is the actual animal
@@ -134,9 +134,9 @@ class Perroquet(Animal):
 
     def __str__(self):
         if self.__dangereux:
-            return f"{self._nom} à {self._age} ans et pèse {self._poids} grammes.\033[91m ATTENTION: DANGEREUX\033[00m"
+            return f"{self.nom} à {self.age} ans et pèse {self.poids} grammes.\033[91m ATTENTION: DANGEREUX\033[00m"
         else:
-            return f"{self._nom} à {self._age} ans et pèse {self._poids} grammes."
+            return f"{self.nom} à {self.age} ans et pèse {self.poids} grammes."
 
 
 
