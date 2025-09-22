@@ -1,0 +1,1 @@
+{"nom_station": "Station de Iris", "capteurs": [{"unite": "C", "id_capteur": "ID1", "classname": "Thermometre"}, {"unite": "C", "id_capteur": "ID2", "classname": "Thermometre"}, {"unite": "hPa", "id_capteur": "ID3", "classname": "Barometre"}, {"unite": "lux", "id_capteur": "ID4", "classname": "Luxmetre"}, {"unite": "lux", "id_capteur": "ID5", "classname": "Luxmetre"}]}

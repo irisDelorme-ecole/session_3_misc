@@ -3,6 +3,9 @@ from dataclasses import dataclass
 import datetime
 import random
 import pprint
+import pickle
+import json
+
 
 @dataclass
 class Capteur(ABC):
@@ -17,6 +20,16 @@ class Capteur(ABC):
         self.__unite = unite
         Capteur.gen_id_capteur += 1
         self.__id_capteur= 'ID' + str(Capteur.gen_id_capteur)
+
+
+    def to_dict(self):
+        print('made it to to_dict')
+        return {
+            'unite': self.unite,
+            'id_capteur': self.id_capteur,
+            'classname': self.__class__.__name__,
+        }
+
 
 
     @property
@@ -44,8 +57,6 @@ class Thermometre(Capteur):
 
     def __init__(self):
         super().__init__('C')
-        print('instance created')
-
 
     def mesurer(self):
         current_time = datetime.datetime.now()
@@ -58,11 +69,13 @@ class Thermometre(Capteur):
         else:
             return f"Mesure de Thermometre ({self.id_capteur}) : " + str(round(random.uniform(13, 30), 2)) + " C ."
 
+
+
 class Barometre(Capteur):
 
     def __init__(self):
         super().__init__('hPa')
-        print('instance created')
+
 
     def mesurer(self):
         return f"Mesure de Barometre ({self.id_capteur}) : " + str(round(random.uniform(950, 1050), 3)) + " hPa ."
@@ -82,18 +95,32 @@ class Luxmetre(Capteur):
         else:
             return f"Mesure de Luxmetre ({self.id_capteur}) : " + str(round(random.uniform(2, 1000000), 4)) + " lux ."
 
+
+
 class StationMesure():
 
     #attributs d'instance
     __nom_station:str
-    __capteurs:list
+    __capteurs:list[Capteur]
+
 
     def __init__(self, nom_station):
         self.__nom_station = nom_station
         self.__capteurs = []
 
+    @property
+    def capteurs(self):
+        return self.__capteurs
+
     def ajouter_capteur(self, capteur):
         self.__capteurs.append(capteur)
+
+    def to_dict(self):
+        print('made it to todict')
+        return {
+            'nom_station': self.__nom_station,
+            'capteurs':[ i.to_dict() for i in self.__capteurs]
+        }
 
     def effectuer_mesures(self):
         capteurs_dict = {'capt' : 'Mesures des capteurs'}
@@ -117,4 +144,13 @@ if __name__ == '__main__':
     for capteur in list_capteurs:
         station_mesures.ajouter_capteur(capteur)
 
+
+
+    with open('data.json', 'w', encoding='utf-8') as file:
+        json.dump(station_mesures.to_dict(), file)
+
+    # with open('data.json', 'r') as file:
+    #     station_mesures = json.load(file)
     pprint.pprint(station_mesures.effectuer_mesures())
+
+  #  pprint.pprint(station_mesures.effectuer_mesures())
