@@ -1,25 +1,15 @@
-from PyQt6.QtWidgets import QApplication, QLineEdit, QVBoxLayout, QHBoxLayout, QWidget,QPushButton , QLabel
+from PyQt6.QtWidgets import QApplication, QLineEdit, QVBoxLayout, QHBoxLayout, QWidget,QPushButton , QLabel, QMainWindow
 import sys
 
+from PyQt6.uic import loadUi
 
 
 class Fenetre(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.label = QLabel()
-        self.label.setText("Salut")
+        loadUi("test.ui",self)
 
-        self.bouton = QPushButton()
-        self.bouton.setText("cliquez")
-
-        self.layout = QHBoxLayout()
-        self.layout.addWidget(self.label)
-        self.layout.addWidget(self.bouton)
-        self.setLayout(self.layout)
-        self.resize(300, 200)
-        self.times = 0
-        self.bouton.clicked.connect(self.on_click)
 
     def on_click(self):
         self.times += 1
