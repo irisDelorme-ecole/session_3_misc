@@ -6,6 +6,8 @@ from PyQt6.uic import loadUi
 
 class Fenetre(QWidget):
 
+
+
     def __init__(self):
         super().__init__()
         loadUi("test.ui",self)

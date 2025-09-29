@@ -1,7 +1,10 @@
 from PyQt6.QtWidgets import QMainWindow, QLabel, QPushButton, QWidget, QApplication
 from PyQt6.uic import loadUi
 import sys
+#always add ui directory to keep organised
 
+#view-model separation is NECESSARY
+#it's like the first steps to front-end back-end separated coding
 
 class Ex2(QWidget):
 
