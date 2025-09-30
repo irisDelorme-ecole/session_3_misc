@@ -17,8 +17,10 @@ class MPLCanvas(FigureCanvas):
         plt.title(value)
 
     def plot(self, fonction):
+        self.__axe.clear()
         x = np.linspace(0,10,100)
         self.__axe.plot(x, fonction(x))
+        plt.draw()
 
 
 

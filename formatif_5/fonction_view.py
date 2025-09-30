@@ -29,7 +29,7 @@ class FonctionView(QMainWindow):
 
 
         self.canvas = MPLCanvas()
-      
+        self.toolbar = NavigationToolbar(self.canvas)
 
 
 
@@ -40,13 +40,15 @@ class FonctionView(QMainWindow):
     def set_fonction(self):
         fonction = sp.sympify(self.fonctionLineEdit.text())
 
-        self.fonction = FonctionModel(fonction,self.titreLineEdit.text())
+        self.fonction = FonctionModel()
+        self.fonction.set_titre(self.titreLineEdit.text())
+        self.fonction.set_fonction(fonction)
         self.canvas.plot(self.fonction.get_fonction())
         self.canvas.set_titre(self.fonction.get_titre())
         self.imbriquer()
 
     def imbriquer(self):
-        self.toolbar = NavigationToolbar(self.canvas)
+
         layout = QVBoxLayout(self.plotWidget)  # 'plot_widget' is a placeholder widget in the .ui file
         layout.addWidget(self.toolbar)
         layout.addWidget(self.canvas)

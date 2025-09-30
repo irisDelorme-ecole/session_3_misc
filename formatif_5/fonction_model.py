@@ -5,10 +5,15 @@ class FonctionModel():
 
     titre:str
 
-    def __init__(self, fonction, titre):
-        self.titre = titre
-        self.fonction = fonction
+    def __init__(self):
+        self.titre = "titre"
+        self.fonction = " "
 
+    def set_titre(self, value):
+        self.titre = value
+
+    def set_fonction(self,value):
+        self.fonction = value
 
     def get_fonction(self):
         x = sp.symbols('x')
