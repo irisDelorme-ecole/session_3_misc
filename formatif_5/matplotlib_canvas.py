@@ -1,3 +1,4 @@
+import numpy as np
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
@@ -12,10 +13,12 @@ class MPLCanvas(FigureCanvas):
 
         super().__init__(self.__fig)
 
-        self.plot()
+    def set_titre(self, value):
+        plt.title(value)
 
-    def plot(self):
-        #TODO make it read funct
-        #
-        #fonction = sp.lambdify(variable, f, 'numpy')
+    def plot(self, fonction):
+        x = np.linspace(0,10,100)
+        self.__axe.plot(x, fonction(x))
+
+
 

@@ -2,83 +2,91 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1082</width>
-    <height>755</height>
+    <width>934</width>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,0">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0,0">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+    <widget class="QWidget" name="plotWidget" native="true"/>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QLabel" name="fonctionLabel">
-         <property name="text">
-          <string>Fonction</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="fonctionLineEdit"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="titreLineEdit"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="titreLabel">
-         <property name="text">
-          <string>Titre</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QLabel" name="fonctionLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Fonction</string>
+       </property>
+      </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
-       <property name="spacing">
-        <number>1</number>
+      <widget class="QWidget" name="widget" native="true"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="fonctionLineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="titreLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="leftMargin">
-        <number>1</number>
+       <property name="text">
+        <string>Titre</string>
        </property>
-       <item>
-        <widget class="QCheckBox" name="afficherGrilleCheckBox">
-         <property name="text">
-          <string>Afficher grille</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="afficherPushButton">
-         <property name="text">
-          <string>Afficher</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="titreLineEdit"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item>
+      <widget class="QCheckBox" name="afficherGrilleCheckBox">
+       <property name="text">
+        <string>Afficher grille</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="afficherPushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Afficher</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
