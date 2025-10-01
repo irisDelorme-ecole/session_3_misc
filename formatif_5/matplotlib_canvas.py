@@ -17,11 +17,11 @@ class MPLCanvas(FigureCanvas):
         plt.draw()#makes blank plot with axes visible
 
 
-    def plot(self, has_grille):
+    def plot(self, has_grille, colour="black"):
         self.__axe.clear()
         f = self.__fonction_model.get_fonction()
         x = np.linspace(0,10,100)
-        self.__axe.plot(x, f(x))
+        self.__axe.plot(x, f(x), colour)
         self.__axe.grid(has_grille)
         plt.title(self.__fonction_model.get_titre())
         plt.draw()
