@@ -17,15 +17,23 @@ class MPLCanvas(FigureCanvas):
         plt.draw()#makes blank plot with axes visible
 
 
-        #self.__fonction_model.has_updated.connect(self.plot)
+
+        self.__fonction_model.has_updated.connect(self.plot)
 
 
+    def set_colour(self):
+        self.line.set_color(self.__fonction_model.get_colour())
+
+    def set_function(self):
+        self.function=self.__fonction_model.get_fonction()
 
     def plot(self):
         self.__axe.clear()
         f = self.__fonction_model.get_fonction()
+        self.set_function()
         x = np.linspace(0,10,100)
-        self.__axe.plot(x, f(x), self.__fonction_model.get_colour())
+        self.line, = self.__axe.plot(x, self.function(x))
+        self.set_colour()
         self.__axe.grid(self.__fonction_model.get_has_grille())
         plt.title(self.__fonction_model.get_titre())
         plt.draw()

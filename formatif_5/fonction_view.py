@@ -47,5 +47,5 @@ class FonctionView(QMainWindow):
 
         self.fonction.set_titre(self.titreLineEdit.text())
         self.fonction.set_fonction(fonction)
-        self.canvas.plot()
+        #self.canvas.plot()
         self.plotWidget.layout().addWidget(self.canvas)
