@@ -4,10 +4,17 @@ import sympy as sp
 class FonctionModel():
 
     titre:str
+    has_grille: bool = False
 
     def __init__(self):
         self.titre = "titre"
         self.fonction = " "
+
+    def set_has_grille(self):
+        self.has_grille = (self.has_grille != True)
+
+    def get_has_grille(self):
+        return self.has_grille
 
     def set_titre(self, value):
         self.titre = value

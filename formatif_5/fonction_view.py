@@ -27,7 +27,6 @@ class FonctionView(QMainWindow):
         # setup de base
         self.colourPicker = QColorDialog()
         self.colourPicker.setOption(QColorDialog.ColorDialogOption.NoButtons)
-        self.colourPicker.setCurrentColor(QColor(0,0,0))
 
         self.plotWidget = QWidget()
 
@@ -46,6 +45,8 @@ class FonctionView(QMainWindow):
         self.afficherPushButton.setEnabled(False)
 
 
+        self.afficherGrilleCheckBox.checkStateChanged.connect(self.fonction.set_has_grille)
+
         if self.titreLineEdit.textChanged and self.fonctionLineEdit.textChanged:
             self.afficherPushButton.setEnabled(True)
             self.afficherPushButton.clicked.connect(self.set_fonction)
@@ -56,6 +57,6 @@ class FonctionView(QMainWindow):
 
         self.fonction.set_titre(self.titreLineEdit.text())
         self.fonction.set_fonction(fonction)
-        self.canvas.plot(self.afficherGrilleCheckBox.isChecked(), self.colourPicker.currentColor().name())
+        self.canvas.plot(self.fonction.get_has_grille(), self.colourPicker.currentColor().name())
         self.plotWidget.layout().addWidget(self.canvas)
 
