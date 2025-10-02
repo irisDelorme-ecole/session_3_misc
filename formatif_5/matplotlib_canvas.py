@@ -1,6 +1,5 @@
 import numpy as np
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 import sympy as sp
 from fonction_model import FonctionModel
@@ -9,6 +8,7 @@ from fonction_model import FonctionModel
 class MPLCanvas(FigureCanvas):
 
 #makes a mpl plot.
+    __fonction_model:FonctionModel
 
     def __init__(self, fonction_model):
         self.__fig, self.__axe = plt.subplots()
@@ -17,12 +17,16 @@ class MPLCanvas(FigureCanvas):
         plt.draw()#makes blank plot with axes visible
 
 
-    def plot(self, has_grille, colour="black"):
+        #self.__fonction_model.has_updated.connect(self.plot)
+
+
+
+    def plot(self):
         self.__axe.clear()
         f = self.__fonction_model.get_fonction()
         x = np.linspace(0,10,100)
-        self.__axe.plot(x, f(x), colour)
-        self.__axe.grid(has_grille)
+        self.__axe.plot(x, f(x), self.__fonction_model.get_colour())
+        self.__axe.grid(self.__fonction_model.get_has_grille())
         plt.title(self.__fonction_model.get_titre())
         plt.draw()
 
