@@ -13,7 +13,7 @@ class FonctionModel(QObject):
 
     def __init__(self):
         super().__init__()
-        self.__titre = "titre"
+        self.__titre = ""
         self.__fonction = " "
         self.__couleur = "000000"
 
@@ -28,6 +28,7 @@ class FonctionModel(QObject):
 
     def set_has_grille(self):
         self.__has_grille = (self.__has_grille != True)
+        self.has_updated.emit("is triggered")
         #emit
 
     def get_has_grille(self):
