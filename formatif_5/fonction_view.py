@@ -50,7 +50,7 @@ class FonctionView(QMainWindow):
 
         fonction = sp.sympify(self.fonctionLineEdit.text())
         if fonction.free_symbols <= {x}:
-            
+
             self.fonction.set_titre(self.titreLineEdit.text())
             self.fonction.set_fonction(fonction)
             self.plotWidget.layout().addWidget(self.canvas)

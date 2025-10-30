@@ -1,0 +1,9 @@
+CorrelationId: 37889adc-a053-4839-bd61-31492aab9fcd
+UTC DateTime: 10/30/2025 16:45:20
+
+The following files/folders have not been downloaded
+0. Formatif7_enonce/__init__.py
+1. Formatif7_enonce/exercice1/__init__.py
+2. Formatif7_enonce/exercice1/controller/__init__.py
+3. Formatif7_enonce/exercice1/model/__init__.py
+4. Formatif7_enonce/exercice1/view/__init__.py
