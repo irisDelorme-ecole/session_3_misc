@@ -17,7 +17,7 @@ class CounterView(QWidget):
 
     @property
     def controller(self):
-        return self.controller
+        return self.__controller
     
     @controller.setter
     def controller (self, value):

@@ -15,5 +15,11 @@ class CounterModel(QObject):
         self._value -= 1
         self.valueChanged.emit(self._value)
 
+    @property
     def value(self):
         return self._value
+
+    @value.setter
+    def value(self,value):
+        self._value = value
+        self.valueChanged.emit(self._value)

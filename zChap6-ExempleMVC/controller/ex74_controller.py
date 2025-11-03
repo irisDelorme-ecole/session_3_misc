@@ -18,10 +18,10 @@ class CounterController:
         self.view.plusPushButton.clicked.connect(self.increment)
         self.view.minusPushButton.clicked.connect(self.decrement)
         self.model.valueChanged.connect(self.update_value)
-        self.viewSlider.slider.valueChanged.connect(self.update_value)
+        self.viewSlider.slider.valueChanged.connect(self.update_model)
 
         # Initialisation
-        self.update_value(self.model.value())
+        self.update_value(self.model.value)
 
 
     def increment(self):
@@ -34,5 +34,6 @@ class CounterController:
 
     def update_value(self, value):
         self.view.valueLabel.setText(str(value))
-        self.viewSlider.set_position(value)
+
+    def update_model(self, value):
         self.model.value = value
